@@ -84,8 +84,7 @@ def read_text(path):
 
 import glob
 if __name__ == '__main__':
-    
-    ##lmdb 输出目录
+
     outputPath = '../data/lmdb/train'
     
     path = '../data/dataline/*.jpg'

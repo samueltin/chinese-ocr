@@ -1,0 +1,21 @@
+demo.py
+model.py model
+ 1. Detect Angle
+ 2. Text Detection -- ctpn
+ 3. Text recognition -- crnn
+
+ 1. Detect Angle
+ angle/predict.py predict return index 4 elements [0, 270, 180, 90]
+ found that this model is not working and it is not called
+
+ 3. Text recognition -- crnn keras
+ model.py crnnRec
+ ocr.model predict (as ocr)
+   in predict function call basemodel.predict
+   basemodel's structure is defined in ocr.model get_model function
+   then load weight from ocr/ocr0.2.h5
+
+
+training phase
+train/train-keras.sh
+train/keras-train/trainbatch.py

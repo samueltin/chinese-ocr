@@ -7,11 +7,14 @@ import time
 paths = glob('./test/*.*')
 
 if __name__ =='__main__':
-    im = Image.open(paths[1])
-    img = np.array(im.convert('RGB'))
-    t = time.time()
-    result,img,angle = model.model(img,model='keras')
-    print "It takes time:{}s".format(time.time()-t)
-    print "---------------------------------------"
-    for key in result:
-        print result[key][1]
+
+    for path in paths:
+        im = Image.open(path)
+        # im.thumbnail((100, 32), Image.ANTIALIAS)
+        img = np.array(im.convert('RGB'))
+        t = time.time()
+        result,img,angle = model.model(img,model='keras')
+        print ("It takes time:{}s".format(time.time()-t))
+        print ("---------------------------------------")
+        for key in result:
+            print (result[key][1])

@@ -1,6 +1,6 @@
-from cfg import Config as cfg
+from ctpn.ctpn.cfg import Config as cfg
 import numpy as np
-from other import Graph
+from ctpn.ctpn.other import Graph
 
 
 class TextProposalGraphBuilder:

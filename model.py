@@ -8,6 +8,7 @@ from math import *
 import numpy as np
 import cv2
 from PIL import Image
+from crnn_tf.crnn_tf import recognize
 def crnnRec(im,text_recs,ocrMode='keras',adjust=False):
    """
    crnn模型，ocr识别
@@ -40,9 +41,12 @@ def crnnRec(im,text_recs,ocrMode='keras',adjust=False):
 
        partImg = dumpRotateImage(im,degree,pt1,pt2,pt3,pt4)
 
-       image = Image.fromarray(partImg ).convert('L')
+       # image = Image.fromarray(partImg ).convert('L')
+       image = Image.fromarray(partImg)
        if ocrMode=='keras':
             sim_pred = ocr(image)
+       elif ocrMode=='tf':
+           sim_pred = recognize(image, weights_path='/Users/samueltin/Projects/jb/chinese_two_five_merge/shadownet_2018-05-09-01-09-31.ckpt-30000')
        else:
             sim_pred = crnnOcr(image)
        

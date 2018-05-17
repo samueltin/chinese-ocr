@@ -9,7 +9,7 @@ from keras.optimizers import SGD
 import numpy as np
 #from PIL import Image
 import keras.backend  as K
-import keys
+import ocr.keys
 import os
 #from keras.models import load_model
 
@@ -62,7 +62,7 @@ def get_model(height,nclass):
     #model.summary()
     return model,basemodel
 
-characters = keys.alphabet[:]
+characters = ocr.keys.alphabet[:]
 
 
 modelPath = os.path.join(os.getcwd(),"ocr/ocr0.2.h5")
@@ -78,10 +78,12 @@ def predict(im):
     
     """
     im = im.convert('L')
+    im.show()
     scale = im.size[1]*1.0 / 32
     w = im.size[0] / scale
     w = int(w)
     im = im.resize((w,32))
+    # im.show()
     img = np.array(im).astype(np.float32)/255.0
     X  = img.reshape((32,w,1))
     X = np.array([X])

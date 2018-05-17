@@ -1,5 +1,5 @@
 import torch.nn as nn
-import utils
+import crnn.models.utils
 
 
 class BidirectionalLSTM(nn.Module):

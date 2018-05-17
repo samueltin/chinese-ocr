@@ -2,8 +2,8 @@
 import tensorflow as tf
 import sys
 import os
-from cfg import Config
-from other import resize_im
+from ctpn.ctpn.cfg import Config
+from ctpn.ctpn.other import resize_im
 sys.path.append('ctpn')
 from lib.networks.factory import get_network
 from lib.fast_rcnn.config import cfg
